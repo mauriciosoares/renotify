@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
-import YellContainer from './container/index';
-import yell from './hoc/index';
+import YellContainer from './yell-container.js';
+import yell from './yell';
 
 class Container extends React.Component {
   render() {
