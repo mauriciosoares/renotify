@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function(Component) {
-  return class YellHoc extends React.Component {
+  return class Yell extends React.Component {
     static contextTypes = {
       yell: React.PropTypes.func
     }

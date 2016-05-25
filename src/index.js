@@ -17,7 +17,7 @@ class InnerComponent extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.yell}>Yell!</button>
+        <button onClick={() => {this.props.yell({title: ':D'})}}>Yell!</button>
       </div>
     );
   }

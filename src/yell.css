@@ -1,0 +1,7 @@
+.react-yell__container {
+  position: relative;
+}
+
+.react-yell__notification {
+  position: absolute;
+}
