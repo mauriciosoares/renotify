@@ -1,11 +1,16 @@
 import React from 'react';
+import yell from '../yell.js';
 
-export default function Notification({
-  title
+function Notification({
+  title,
+  id,
+  closeYell
 }) {
   return (
-    <div>
+    <div className="react-yell__notification" onClick={() => {closeYell(id)}}>
       {title}
     </div>
   );
 }
+
+export default yell(Notification);

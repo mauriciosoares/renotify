@@ -1,6 +1,7 @@
 import React from 'react';
 import Notification from './components/notification';
 import uuid from 'node-uuid';
+import './yell.css';
 
 const defaultTheme = {
   container: 'react-yell__container',
@@ -9,22 +10,25 @@ const defaultTheme = {
 
 class YellContainer extends React.Component {
   static childContextTypes = {
-    yell: React.PropTypes.func
+    yell: React.PropTypes.func,
+    closeYell: React.PropTypes.func
+  }
+
+  state = {
+    notifications: []
   }
 
   constructor(props) {
     super(props);
 
     this._yell = this._yell.bind(this);
-
-    this.state = {
-      notifications: []
-    };
+    this._closeYell = this._closeYell.bind(this);
   }
 
   getChildContext() {
     return {
-      yell: this._yell
+      yell: this._yell,
+      closeYell: this._closeYell
     }
   }
 
@@ -45,18 +49,21 @@ class YellContainer extends React.Component {
   }
 
   _yell({title = null}) {
-    this._setNotification({
+    const {notifications} = this.state;
+    this._setNotification([...notifications, {
       id: uuid.v1(),
       title
-    });
+    }]);
   }
 
-  _setNotification(notification) {
+  _closeYell(id) {
     const {notifications} = this.state;
 
-    this.setState({
-      notifications: [...notifications, notification]
-    });
+    this._setNotification(notifications.filter(n => n.id !== id));
+  }
+
+  _setNotification(notifications) {
+    this.setState({notifications});
   }
 }
 
