@@ -3,13 +3,18 @@ import React from 'react';
 export default function notification(Component) {
   return class Yell extends React.Component {
     static contextTypes = {
-      notify: React.PropTypes.func,
-      closeNotification: React.PropTypes.func
+      __notify: React.PropTypes.func,
+      __closeNotification: React.PropTypes.func
     }
 
     render() {
+      const {__notify, __closeNotification} = this.context;
+      const customProps = {
+        notify: __notify,
+        closeNotification: __closeNotification
+      }
       return (
-        <Component {...this.props} {...this.context} />
+        <Component {...this.props} {...customProps} />
       );
     }
   }

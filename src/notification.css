@@ -1,8 +1,8 @@
-.react-notification__container {
+:local(.container) {
   position: relative;
 }
 
-.react-notification__items {
+:local(.items) {
   position: absolute;
   top: 0;
   right: 0;
