@@ -1,17 +1,17 @@
 import React from 'react';
 import Notification from './components/notification';
 import uuid from 'node-uuid';
-import './yell.css';
+import './notification.css';
 
 const defaultTheme = {
-  container: 'react-yell__container',
-  notification: 'react-yell__notification'
+  container: 'react-notification__container',
+  notification: 'react-notification__item'
 }
 
-class YellContainer extends React.Component {
+class NotificationContainer extends React.Component {
   static childContextTypes = {
-    yell: React.PropTypes.func,
-    closeYell: React.PropTypes.func
+    notify: React.PropTypes.func,
+    closeNotification: React.PropTypes.func
   }
 
   state = {
@@ -21,14 +21,14 @@ class YellContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this._yell = this._yell.bind(this);
-    this._closeYell = this._closeYell.bind(this);
+    this._notify = this._notify.bind(this);
+    this._closeNotification = this._closeNotification.bind(this);
   }
 
   getChildContext() {
     return {
-      yell: this._yell,
-      closeYell: this._closeYell
+      notify: this._notify,
+      closeNotification: this._closeNotification
     }
   }
 
@@ -48,7 +48,7 @@ class YellContainer extends React.Component {
     );
   }
 
-  _yell({title = null}) {
+  _notify({title = null}) {
     const {notifications} = this.state;
     this._setNotification([...notifications, {
       id: uuid.v1(),
@@ -56,7 +56,7 @@ class YellContainer extends React.Component {
     }]);
   }
 
-  _closeYell(id) {
+  _closeNotification(id) {
     const {notifications} = this.state;
 
     this._setNotification(notifications.filter(n => n.id !== id));
@@ -67,4 +67,4 @@ class YellContainer extends React.Component {
   }
 }
 
-export default YellContainer;
+export default NotificationContainer;

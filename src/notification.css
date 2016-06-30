@@ -1,8 +1,8 @@
-.react-yell__container {
+.react-notification__container {
   position: relative;
 }
 
-.react-yell__notification {
+.react-notification__item {
   position: absolute;
   top: 0;
   right: 0;

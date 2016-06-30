@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function(Component) {
+export default function notification(Component) {
   return class Yell extends React.Component {
     static contextTypes = {
-      yell: React.PropTypes.func,
-      closeYell: React.PropTypes.func
+      notify: React.PropTypes.func,
+      closeNotification: React.PropTypes.func
     }
 
     render() {

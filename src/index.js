@@ -1,14 +1,14 @@
 import React from 'react';
 import {render} from 'react-dom';
-import YellContainer from './yell-container.js';
-import yell from './yell';
+import NotificationContainer from './notification-container.js';
+import notification from './notification';
 
 class Container extends React.Component {
   render() {
     return (
-      <YellContainer>
-        <YelledInnerComponent />
-      </YellContainer>
+      <NotificationContainer>
+        <ComposedComponent />
+      </NotificationContainer>
     )
   }
 }
@@ -17,13 +17,16 @@ class InnerComponent extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={() => {this.props.yell({title: ':D'})}}>Yell!</button>
+        <button
+          onClick={() => {
+            this.props.notify({title: ':D'})
+          }}>notification!</button>
       </div>
     );
   }
 }
 
-const YelledInnerComponent = yell(InnerComponent);
+const ComposedComponent = notification(InnerComponent);
 
 document.body.appendChild(document.createElement('div'));
 render(<Container />, document.querySelector('div'));
