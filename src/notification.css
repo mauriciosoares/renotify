@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.react-notification__item {
+.react-notification__items {
   position: absolute;
   top: 0;
   right: 0;

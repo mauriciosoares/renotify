@@ -19,7 +19,7 @@ class InnerComponent extends React.Component {
       <div>
         <button
           onClick={() => {
-            this.props.notify({title: ':D'})
+            this.props.notify({title: +new Date()})
           }}>notification!</button>
       </div>
     );

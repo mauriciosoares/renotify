@@ -2,6 +2,7 @@ import React from 'react';
 import Notification from './components/notification';
 import uuid from 'node-uuid';
 import './notification.css';
+import Notifications from './components/notifications';
 
 const defaultTheme = {
   container: 'react-notification__container',
@@ -37,11 +38,7 @@ class NotificationContainer extends React.Component {
 
     return (
       <div>
-        {notifications.map(notification => {
-          return (
-            <Notification key={notification.id} {...notification} />
-          );
-        })}
+        <Notifications notifications={notifications} />
 
         {this.props.children}
       </div>
