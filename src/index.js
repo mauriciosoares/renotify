@@ -1,2 +1,2 @@
-export {default as notification} from './notification';
-export {default as NotificationContainer} from './notification-container';
+export {default as notification} from './hoc';
+export {default as NotificationContainer} from './container';
