@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
-import {NotificationContainer, notification} from './';
+import {NotificationContainer, notifiable} from './';
 
 class Container extends React.Component {
   render() {
@@ -28,7 +28,7 @@ class InnerComponent extends React.Component {
   }
 }
 
-InnerComponent = notification(InnerComponent)
+InnerComponent = notifiable(InnerComponent)
 
 document.body.appendChild(document.createElement('div'));
 render(<Container />, document.querySelector('div'));

@@ -12,6 +12,18 @@ class Container extends React.Component {
     })
   }
 
+  static childContextTypes = {
+    __notify: React.PropTypes.func,
+    __closeNotification: React.PropTypes.func
+  }
+
+  getChildContext() {
+    return {
+      __notify: this.notify,
+      __closeNotification: this.closeNotification
+    };
+  }
+
   constructor(props, context) {
     super()
 
@@ -28,6 +40,14 @@ class Container extends React.Component {
         {this.props.children}
       </Notification>
     );
+  }
+
+  notify() {
+    console.log('notify');
+  }
+
+  closeNotification() {
+    console.log('close');
   }
 }
 

@@ -1,17 +1,12 @@
 import React from 'react';
-import Notification from './notification';
+import Notification from './item';
 
-class Notifications extends React.Component {
-  static contextTypes = {
-    __theme: React.PropTypes.object
-  }
-
+class Items extends React.Component {
   render() {
     const {notifications} = this.props;
-    const {__theme} = this.context;
 
     return (
-      <div className={__theme.items}>
+      <div>
         {notifications.map(notification => {
           return (
             <Notification key={notification.id} {...notification} />
@@ -22,4 +17,4 @@ class Notifications extends React.Component {
   }
 }
 
-export default Notifications;
+export default Items;
