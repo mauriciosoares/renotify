@@ -1,21 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import notifiable from '../notifiable';
 
 class Notification extends React.Component {
-  static contextTypes = {
-    __closeNotification: React.PropTypes.func
-  }
-
   render() {
-    const {title, id} = this.props;
-    const {__closeNotification} = this.context;
+    const {title, id, closeNotification} = this.props;
 
     return (
-      <div onClick={() => __closeNotification(id)}>
+      <div onClick={() => closeNotification(id)}>
         {title}
       </div>
     );
   }
 }
 
-export default Notification;
+export default notifiable(Notification);

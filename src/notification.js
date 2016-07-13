@@ -2,7 +2,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Items from './components/items';
-import {notify} from './reducerAndActions';
+import {actionCreators} from './reducerAndActions';
 
 class Notification extends React.Component {
   static childContextTypes = {
@@ -41,8 +41,10 @@ class Notification extends React.Component {
     notify(notification);
   }
 
-  closeNotification() {
-    console.log('close');
+  closeNotification(id) {
+    const {closeNotification} = this.props;
+
+    closeNotification(id);
   }
 }
 
@@ -55,7 +57,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({notify}, dispatch);
+  return bindActionCreators({...actionCreators}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notification);

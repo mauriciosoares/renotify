@@ -4,7 +4,6 @@ import Item from './item';
 class Items extends React.Component {
   render() {
     const {notifications} = this.props;
-    console.log(notifications);
 
     return (
       <div>
