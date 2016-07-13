@@ -1,16 +1,32 @@
 import React from 'react';
 import {render} from 'react-dom';
-import {createStore} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import {Provider, connect} from 'react-redux';
 import {NotificationContainer, notification} from './';
 
-function reducer(state = {test: true}, action) {
+function reducer1(state = {test: true}, action) {
   return state;
 }
 
-const store = createStore(reducer);
+function reducer2(state = {test: true}, action) {
+  return state;
+}
+
+const reducers = combineReducers({
+  reducer1,
+  reducer2
+})
+
+console.log(reducers);
+
+const store = createStore(reducers);
 
 class Container extends React.Component {
+  componentDidMount() {
+    setTimeout(() => {
+      store.replaceReducer(reducer1);
+    }, 2000);
+  }
   render() {
     return (
       <Provider store={store}>

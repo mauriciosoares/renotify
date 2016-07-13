@@ -38,6 +38,12 @@ class Container extends React.Component {
     this._theme = {...defaultTheme, ...props.theme}
 
     this.store = context.store;
+
+    console.log(this.store.getState());
+
+    this.store.injectReducer(() => {return {}})
+
+    console.log(this.store.getState());
   }
 
   getChildContext() {

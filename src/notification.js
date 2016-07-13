@@ -2,8 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 class Notification extends React.Component {
+  componentDidMount() {
+    // setInterval(() => {
+      // console.log(this.props);
+    // }, 500);
+  }
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.props.children}

@@ -1,7 +1,7 @@
 {
-  "name": "react-super-notification",
+  "name": "react-notifiable",
   "version": "0.0.1",
-  "description": "A Notification System, like never seen before",
+  "description": "Notifications made easy",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -14,8 +14,7 @@
   "keywords": [
     "react",
     "notification",
-    "system",
-    "yell"
+    "notifiable"
   ],
   "author": "Mauricio Soares <m.soares2603@gmail.com>",
   "license": "MIT",
