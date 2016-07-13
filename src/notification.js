@@ -1,8 +1,29 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Items from './components/items';
+import {notify} from './reducerAndActions';
 
 class Notification extends React.Component {
+  static childContextTypes = {
+    __notify: React.PropTypes.func,
+    __closeNotification: React.PropTypes.func
+  }
+
+  getChildContext() {
+    return {
+      __notify: this.notify,
+      __closeNotification: this.closeNotification
+    };
+  }
+
+  constructor() {
+    super();
+
+    this.notify = this.notify.bind(this);
+    this.closeNotification = this.closeNotification.bind(this);
+  }
+
   render() {
     const {notifications} = this.props.$$notifiable
 
@@ -12,6 +33,16 @@ class Notification extends React.Component {
         {this.props.children}
       </div>
     );
+  }
+
+  notify(notification) {
+    const {notify} = this.props;
+
+    notify(notification);
+  }
+
+  closeNotification() {
+    console.log('close');
   }
 }
 
@@ -23,4 +54,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Notification);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({notify}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Notification);

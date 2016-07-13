@@ -1,19 +1,26 @@
+import uuid from 'uuid';
+
 const NOTIFY = '@@react-yell/NOTIFY';
 const initialState = {
   notifications: []
 }
 
-export function notify(notification) {
+export function notify(n) {
   return {
     type: NOTIFY,
-    notification
+    notification: {
+      ...n,
+      id: uuid.v4()
+    }
   }
 }
 
 export default function reducer(state = initialState, action) {
   switch(action.type) {
     case NOTIFY:
-      state = [...state, notification];
+      state = {
+        notifications: [...state.notifications, action.notification]
+      };
       return state;
     default:
       return state;

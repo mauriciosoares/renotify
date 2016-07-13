@@ -1,15 +1,16 @@
 import React from 'react';
-import Notification from './item';
+import Item from './item';
 
 class Items extends React.Component {
   render() {
     const {notifications} = this.props;
+    console.log(notifications);
 
     return (
       <div>
         {notifications.map(notification => {
           return (
-            <Notification key={notification.id} {...notification} />
+            <Item key={notification.id} {...notification} />
           );
         })}
       </div>
