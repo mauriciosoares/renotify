@@ -2,12 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 class Notification extends React.Component {
-  componentDidMount() {
-    // setInterval(() => {
-      // console.log(this.props);
-    // }, 500);
-  }
   render() {
+    console.log(this.props);
     return (
       <div>
         {this.props.children}
@@ -16,4 +12,12 @@ class Notification extends React.Component {
   }
 }
 
-export default connect(s => s)(Notification);
+function mapStateToProps(state) {
+  const {$$notifiable} = state;
+
+  return {
+    $$notifiable: $$notifiable || state
+  };
+}
+
+export default connect(mapStateToProps)(Notification);

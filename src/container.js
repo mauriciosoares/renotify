@@ -1,21 +1,9 @@
 import React, {PropTypes} from 'react';
+import {createStore} from 'redux';
 import Notification from './notification';
-import uuid from 'node-uuid';
-import Notifications from './components/notifications';
-import {container, items} from './notification.css';
-
-const defaultTheme = {
-  container,
-  items
-}
+import reducer from './reducerAndActions';
 
 class Container extends React.Component {
-  static childContextTypes = {
-    __notify: PropTypes.func,
-    __closeNotification: PropTypes.func,
-    __theme: PropTypes.object
-  }
-
   static contextTypes = {
     store: PropTypes.shape({
       subscribe: PropTypes.func.isRequired,
@@ -24,66 +12,23 @@ class Container extends React.Component {
     })
   }
 
-  static defaultProps = {
-    theme: {}
-  }
-
-  static propTypes = {
-    theme: PropTypes.object
-  }
-
   constructor(props, context) {
-    super();
+    super()
 
-    this._theme = {...defaultTheme, ...props.theme}
-
-    this.store = context.store;
-
-    console.log(this.store.getState());
-
-    this.store.injectReducer(() => {return {}})
-
-    console.log(this.store.getState());
-  }
-
-  getChildContext() {
-    return {
-      __notify: this._notify,
-      __closeNotification: this._closeNotification,
-      __theme: this._theme
-
+    if(context.store) {
+      this.store = context.store;
+    } else {
+      this.store = createStore(reducer);
     }
   }
 
   render() {
-    const notifications = [];
-
     return (
-      <div>
-        <Notification>
-          {this.props.children}
-        </Notification>
-      </div>
+      <Notification store={this.store}>
+        {this.props.children}
+      </Notification>
     );
   }
-
-  // _notify({title = null}) {
-  //   const {notifications} = this.state;
-  //   this._setNotification([...notifications, {
-  //     id: uuid.v1(),
-  //     title
-  //   }]);
-  // }
-
-  // _closeNotification(id) {
-  //   const {notifications} = this.state;
-
-  //   this._setNotification(notifications.filter(n => n.id !== id));
-  // }
-
-  // _setNotification(notifications) {
-  //   this.setState({notifications});
-  // }
 }
 
 export default Container;

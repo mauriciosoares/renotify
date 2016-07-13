@@ -1,5 +1,7 @@
 const NOTIFY = '@@react-yell/NOTIFY';
-const initialState = []
+const initialState = {
+  notifications: []
+}
 
 export function notify(notification) {
   return {
@@ -8,7 +10,7 @@ export function notify(notification) {
   }
 }
 
-export default function reducer(state, action) {
+export default function reducer(state = initialState, action) {
   switch(action.type) {
     case NOTIFY:
       state = [...state, notification];
