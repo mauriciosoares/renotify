@@ -7,11 +7,13 @@ const initialState = {
 }
 
 function notify(n) {
+  const id = n.id || uuid.v4();
+
   return {
     type: NOTIFY,
     notification: {
       ...n,
-      id: uuid.v4()
+      id
     }
   }
 }

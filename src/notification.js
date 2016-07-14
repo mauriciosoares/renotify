@@ -1,4 +1,5 @@
 import React from 'react';
+import uuid from 'uuid';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Items from './components/items';
@@ -37,8 +38,11 @@ class Notification extends React.Component {
 
   notify(notification) {
     const {notify} = this.props;
+    const id = uuid.v4();
 
-    notify(notification);
+    notify({...notification, id});
+
+    return id;
   }
 
   closeNotification(id) {

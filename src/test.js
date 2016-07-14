@@ -44,7 +44,8 @@ class InnerComponent extends React.Component {
   }
 
   _handleClick = () => {
-    this.props.notify({title: +new Date()});
+    const id = this.props.notify({title: +new Date()});
+    console.log(id);
   };
 
   _handleMiddleware = () => {
