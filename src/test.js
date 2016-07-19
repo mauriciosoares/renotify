@@ -14,7 +14,7 @@ const reducers = combineReducers({
 });
 
 const notifiableMiddleware = createMiddleware({
-  TEST: {title: 'HUE MIDDLWARE BRBR'}
+  TEST: {title: 'HUE MIDDLWARE BRBR', message: 'custom message yay!'}
 });
 
 const store = createStore(reducers, applyMiddleware(notifiableMiddleware));
@@ -44,8 +44,24 @@ class InnerComponent extends React.Component {
   }
 
   _handleClick = () => {
-    const id = this.props.notify({title: +new Date()});
-    console.log(id);
+    const id = this.props.notify({
+      title: +new Date(),
+      message: 'handle message2 :D',
+      actions: [{
+        label: 1,
+        callback() {
+          // console.log('callback1');
+        }
+      }, {
+        label: 'close here!'
+      }],
+      onAdd() {
+        // console.log('on adding');
+      },
+      onRemove() {
+        // console.log('removing');
+      }
+    });
   };
 
   _handleMiddleware = () => {
@@ -53,7 +69,9 @@ class InnerComponent extends React.Component {
   };
 }
 
-InnerComponent = connect()(notifiable(InnerComponent));
+InnerComponent = connect()(notifiable({
+  title: 'Configured Title!'
+})(InnerComponent));
 
 document.body.appendChild(document.createElement('div'));
 render(<Container />, document.querySelector('div'));

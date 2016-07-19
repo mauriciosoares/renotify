@@ -2,9 +2,16 @@ import uuid from 'uuid';
 
 const NOTIFY = '@@react-yell/NOTIFY';
 const CLOSE_NOTIFICATION = '@@react-yell/CLOSE_NOTIFICATION';
+const NOTIFICATION_BOILERPLATE = {
+  dismiss: true,
+  dismissTimeout: 5000,
+  actions: [{
+    label: 'Dismiss'
+  }]
+};
 const initialState = {
   notifications: []
-}
+};
 
 function notify(n) {
   const id = n.id || uuid.v4();
@@ -12,6 +19,7 @@ function notify(n) {
   return {
     type: NOTIFY,
     notification: {
+      ...NOTIFICATION_BOILERPLATE,
       ...n,
       id
     }

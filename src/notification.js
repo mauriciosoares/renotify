@@ -6,10 +6,12 @@ import Items from './components/items';
 import {actionCreators} from './reducerAndActions';
 
 class Notification extends React.Component {
+  static displayName = 'Notification';
+
   static childContextTypes = {
     __notify: React.PropTypes.func,
     __closeNotification: React.PropTypes.func
-  }
+  };
 
   getChildContext() {
     return {
@@ -52,16 +54,8 @@ class Notification extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  const {$$notifiable} = state;
+const mapStateToProps = (state) => ({
+  $$notifiable: state.$$notifiable || state
+});
 
-  return {
-    $$notifiable: $$notifiable || state
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({...actionCreators}, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Notification);
+export default connect(mapStateToProps, actionCreators)(Notification);

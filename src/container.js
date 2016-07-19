@@ -4,18 +4,20 @@ import Notification from './notification';
 import reducer from './reducerAndActions';
 
 class Container extends React.Component {
+  static displayName = 'Container';
+
   static contextTypes = {
     store: PropTypes.shape({
       subscribe: PropTypes.func.isRequired,
       dispatch: PropTypes.func.isRequired,
       getState: PropTypes.func.isRequired
     })
-  }
+  };
 
   constructor(props, context) {
     super()
 
-    if(context.store) {
+    if(context.store && context.store.getState().$$notifiable) {
       this.store = context.store;
     } else {
       this.store = createStore(reducer);
