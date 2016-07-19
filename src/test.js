@@ -45,7 +45,7 @@ class InnerComponent extends React.Component {
 
   _handleClick = () => {
     const id = this.props.notify({
-      title: +new Date(),
+      // title: +new Date(),
       message: 'handle message2 :D',
       actions: [{
         label: 1,
@@ -62,6 +62,7 @@ class InnerComponent extends React.Component {
         // console.log('removing');
       }
     });
+
   };
 
   _handleMiddleware = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function notifiable(notificationPreset = {}) {
+export default function notifiable(preConfiguration = {}) {
   return (Component) => class Notifiable extends React.Component {
     static displayName = 'Notifiable';
 
@@ -12,7 +12,10 @@ export default function notifiable(notificationPreset = {}) {
     render() {
       const {__notify, __closeNotification} = this.context;
       const customProps = {
-        notify: __notify,
+        notify: (notification) => __notify({
+          ...preConfiguration,
+          ...notification
+        }),
         closeNotification: __closeNotification
       }
       return (
