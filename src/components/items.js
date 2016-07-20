@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Item from './item';
 
 class Items extends React.Component {
   static displayName = 'Items';
+
+  static propTypes = {
+    notifications: PropTypes.array.isRequired
+  };
 
   render() {
     const {notifications} = this.props;
@@ -15,7 +19,7 @@ class Items extends React.Component {
           );
         })}
       </div>
-    )
+    );
   }
 }
 

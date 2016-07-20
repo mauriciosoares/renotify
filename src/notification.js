@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import uuid from 'uuid';
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Items from './components/items';
 import {actionCreators} from './reducerAndActions';
 
 class Notification extends React.Component {
   static displayName = 'Notification';
+
+  static propTypes = {
+    $$notifiable: PropTypes.array,
+    children: PropTypes.element,
+    notify: PropTypes.func,
+    closeNotification: PropTypes.func
+  }
 
   static childContextTypes = {
     __notify: React.PropTypes.func,
@@ -28,7 +34,7 @@ class Notification extends React.Component {
   }
 
   render() {
-    const {notifications} = this.props.$$notifiable
+    const {notifications} = this.props.$$notifiable;
 
     return (
       <div>

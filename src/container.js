@@ -6,6 +6,10 @@ import reducer from './reducerAndActions';
 class Container extends React.Component {
   static displayName = 'Container';
 
+  static propTypes = {
+    children: PropTypes.element
+  };
+
   static contextTypes = {
     store: PropTypes.shape({
       subscribe: PropTypes.func.isRequired,
@@ -15,7 +19,7 @@ class Container extends React.Component {
   };
 
   constructor(props, context) {
-    super()
+    super();
 
     if(context.store && context.store.getState().$$notifiable) {
       this.store = context.store;

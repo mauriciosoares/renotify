@@ -7,7 +7,7 @@ export default {
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/test'
+    './src/index'
   ],
 
   output: {
@@ -48,5 +48,5 @@ export default {
     inline: true,
     progress: true,
     port: 3000
-  },
+  }
 };

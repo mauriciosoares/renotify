@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
-import {connect} from 'react-redux';
 import notifiable from '../notifiable';
 
 class Item extends React.Component {
@@ -12,7 +11,10 @@ class Item extends React.Component {
     closeNotification: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    onAdd: PropTypes.func
+    message: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    onAdd: PropTypes.func,
+    onRemove: PropTypes.func,
+    actions: PropTypes.array
   };
 
   constructor(props) {
@@ -46,7 +48,7 @@ class Item extends React.Component {
   }
 
   render() {
-    const {title, message, id, closeNotification} = this.props;
+    const {title, message} = this.props;
     const actions = this._getActions();
 
     return (
@@ -59,7 +61,7 @@ class Item extends React.Component {
   }
 
   _getActions() {
-    const {actions, id, closeNotification} = this.props;
+    const {actions} = this.props;
 
     return actions.map(({label, callback}, index) => (
       <button

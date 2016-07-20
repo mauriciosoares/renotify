@@ -17,10 +17,11 @@ export default function notifiable(preConfiguration = {}) {
           ...notification
         }),
         closeNotification: __closeNotification
-      }
+      };
+
       return (
         <Component {...this.props} {...customProps} />
       );
     }
-  }
+  };
 }

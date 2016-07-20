@@ -23,14 +23,14 @@ function notify(n) {
       ...n,
       id
     }
-  }
+  };
 }
 
 function closeNotification(id) {
   return {
     type: CLOSE_NOTIFICATION,
     id
-  }
+  };
 }
 
 export const actionCreators = {
