@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server --progress --colors",
+    "start": "webpack-dev-server --config webpack.dev.config.js --progress --colors",
     "lint": "eslint src",
     "dist": "rm -rf dist && mkdir dist && babel src -d dist"
   },

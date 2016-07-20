@@ -1,13 +1,13 @@
-import path from 'path';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+var path = require('path');
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
-export default {
+module.exports = {
   devtool: 'eval',
   entry: [
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    './src/index'
+    './demo/index'
   ],
 
   output: {
@@ -20,7 +20,10 @@ export default {
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        include: path.join(__dirname, 'src')
+        include: [
+          path.join(__dirname, 'src'),
+          path.join(__dirname, 'demo')
+        ]
       },
       {
         test: /\.css$/,

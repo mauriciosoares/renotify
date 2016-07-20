@@ -8,7 +8,7 @@ class Notification extends React.Component {
   static displayName = 'Notification';
 
   static propTypes = {
-    $$notifiable: PropTypes.array,
+    $$notifiable: PropTypes.object,
     children: PropTypes.element,
     notify: PropTypes.func,
     closeNotification: PropTypes.func
