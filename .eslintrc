@@ -155,7 +155,6 @@
     "react/jsx-boolean-value": 0,
     "jsx-quotes": 1,
     "react/jsx-no-undef": 1,
-    "react/jsx-sort-props": [1, {"callbacksLast": true, "shorthandFirst": true}],
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
     "react/no-did-mount-set-state": 1,

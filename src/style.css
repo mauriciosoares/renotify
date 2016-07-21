@@ -10,4 +10,25 @@
 
 .react-notifiable__item {
   position: relative;
+  transition: .3s;
+}
+
+.react-notifiable__items-enter {
+  opacity: 0;
+  left: 100%;
+}
+
+.react-notifiable__items-enter.react-notifiable__items-enter-active {
+  opacity: 1;
+  left: 0;
+}
+
+.react-notifiable__items-leave {
+  opacity: 1;
+  left: 0;
+}
+
+.react-notifiable__items-leave.react-notifiable__items-leave-active {
+  opacity: 0;
+  left: 100%;
 }
