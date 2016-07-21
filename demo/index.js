@@ -54,7 +54,8 @@ class InnerComponent extends React.Component {
       message: 'handle message2 :D',
       actions: [{
         label: 1,
-        callback() {
+        callback(closeNotification) {
+          closeNotification();
           // console.log('callback1');
         }
       }, {

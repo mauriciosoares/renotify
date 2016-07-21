@@ -66,7 +66,7 @@ class Item extends React.Component {
     return actions.map(({label, callback}, index) => (
       <button
         key={index}
-        onClick={callback || this.closeNotification}>
+        onClick={() => callback ? callback(this.closeNotification) : this.closeNotification()}>
         {label}
       </button>
     ));
