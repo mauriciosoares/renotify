@@ -1,0 +1,13 @@
+.react-notifiable__container {
+  position: relative;
+}
+
+.react-notifiable__items {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.react-notifiable__item {
+  position: relative;
+}

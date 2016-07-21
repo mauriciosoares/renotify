@@ -1,9 +1,0 @@
-:local(.container) {
-  position: relative;
-}
-
-:local(.items) {
-  position: absolute;
-  top: 0;
-  right: 0;
-}

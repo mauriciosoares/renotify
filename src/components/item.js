@@ -14,7 +14,8 @@ class Item extends React.Component {
     message: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     onAdd: PropTypes.func,
     onRemove: PropTypes.func,
-    actions: PropTypes.array
+    actions: PropTypes.array,
+    theme: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -48,11 +49,11 @@ class Item extends React.Component {
   }
 
   render() {
-    const {title, message} = this.props;
+    const {title, message, theme, id} = this.props;
     const actions = this._getActions();
 
     return (
-      <div>
+      <div {...theme(id, 'item')}>
         {title}<br />
         {message}<br />
         {actions}

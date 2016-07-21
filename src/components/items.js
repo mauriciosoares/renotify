@@ -5,17 +5,18 @@ class Items extends React.Component {
   static displayName = 'Items';
 
   static propTypes = {
-    notifications: PropTypes.array.isRequired
+    notifications: PropTypes.array.isRequired,
+    theme: PropTypes.func.isRequired
   };
 
   render() {
-    const {notifications} = this.props;
+    const {notifications, theme} = this.props;
 
     return (
-      <div>
+      <div {...theme(1, 'items')}>
         {notifications.map(notification => {
           return (
-            <Item key={notification.id} {...notification} />
+            <Item theme={theme} key={notification.id} {...notification} />
           );
         })}
       </div>

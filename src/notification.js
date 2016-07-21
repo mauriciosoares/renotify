@@ -11,7 +11,8 @@ class Notification extends React.Component {
     $$notifiable: PropTypes.object,
     children: PropTypes.element,
     notify: PropTypes.func,
-    closeNotification: PropTypes.func
+    closeNotification: PropTypes.func,
+    theme: PropTypes.func.isRequired
   }
 
   static childContextTypes = {
@@ -34,11 +35,11 @@ class Notification extends React.Component {
   }
 
   render() {
-    const {notifications} = this.props.$$notifiable;
+    const {theme, $$notifiable: {notifications}} = this.props;
 
     return (
-      <div>
-        <Items notifications={notifications} />
+      <div {...theme(1, 'container')}>
+        <Items notifications={notifications} theme={theme} />
         {this.props.children}
       </div>
     );
