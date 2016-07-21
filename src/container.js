@@ -1,13 +1,14 @@
 import React, {PropTypes} from 'react';
 import {createStore} from 'redux';
 import Notification from './notification';
-import reducer from './reducerAndActions';
+import reducer, {updateNotificationTemplate} from './reducerAndActions';
 
 class Container extends React.Component {
   static displayName = 'Container';
 
   static propTypes = {
-    children: PropTypes.element
+    children: PropTypes.element,
+    notificationTemplate: PropTypes.object
   };
 
   static contextTypes = {
@@ -19,7 +20,11 @@ class Container extends React.Component {
   };
 
   constructor(props, context) {
-    super();
+    super(props);
+
+    if(props.notificationTemplate) {
+      updateNotificationTemplate(props.notificationTemplate);
+    }
 
     if(context.store && context.store.getState().$$notifiable) {
       this.store = context.store;

@@ -23,7 +23,12 @@ class Container extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <NotificationContainer>
+        <NotificationContainer notificationTemplate={{
+          dismiss: false,
+          actions: [{
+            label: 'Fechar'
+          }]
+        }}>
           <InnerComponent />
         </NotificationContainer>
       </Provider>
