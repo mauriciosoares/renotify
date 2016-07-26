@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   devtool: 'eval',
@@ -27,10 +29,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loaders: ['style', 'css', 'postcss'],
         include: path.join(__dirname, 'src')
       }
     ]
+  },
+
+  postcss: function() {
+    return [precss, autoprefixer];
   },
 
   resolve: {

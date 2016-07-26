@@ -9,7 +9,11 @@
 }
 
 .react-notifiable__item {
+  width: 300px;
+  box-sizing: border-box;
   position: relative;
+  padding: 10px;
+  margin-bottom: 10px;
   transition: .3s;
 }
 

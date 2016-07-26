@@ -22,6 +22,7 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/mauriciosoares/react-yell#readme",
   "devDependencies": {
+    "autoprefixer": "^6.3.7",
     "babel-core": "6.8.0",
     "babel-eslint": "^6.1.2",
     "babel-jest": "12.1.0",
@@ -37,6 +38,8 @@
     "eslint-plugin-react": "^5.2.2",
     "html-webpack-plugin": "2.17.0",
     "jest-cli": "12.1.1",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
     "react-addons-test-utils": "15.1.0",
     "react-dom": "15.1.0",
     "react-hot-loader": "1.3.0",
