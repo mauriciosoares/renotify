@@ -28,9 +28,8 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
-        loaders: ['style', 'css', 'postcss'],
-        include: path.join(__dirname, 'src')
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'postcss', 'sass']
       }
     ]
   },

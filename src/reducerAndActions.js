@@ -7,7 +7,8 @@ let NOTIFICATION_TEMPLATE = {
   dismissTimeout: 5000,
   actions: [{
     label: 'Dismiss'
-  }]
+  }],
+  type: 'success'
 };
 const initialState = {
   notifications: []

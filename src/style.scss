@@ -1,0 +1,139 @@
+$color-success: #369c43;
+$color-warning: #e6c909;
+$color-danger: #D40D12;
+
+.react-notifiable__container {
+  position: relative;
+}
+
+.react-notifiable__items {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  overflow: hidden;
+}
+
+.react-notifiable__item {
+  width: 360px;
+  box-sizing: border-box;
+  position: relative;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  transition: .3s;
+  font-family: sans-serif;
+  line-height: 1.4;
+
+  &.success {
+    background: $color-success;
+    color: white;
+    button {
+      border: 1px solid white;
+      background: $color-success;
+      color: white;
+
+      &:hover {
+      border: 1px solid $color-success;
+      background: white;
+      color: $color-success;
+      }
+    }
+  }
+
+  &.warning {
+    background: $color-warning;
+    color: white;
+    button {
+      border: 1px solid white;
+      background: $color-warning;
+      color: white;
+
+      &:hover {
+      border: 1px solid $color-warning;
+      background: white;
+      color: $color-warning;
+      }
+    }
+  }
+
+  &.danger {
+    background: $color-danger;
+    color: white;
+    button {
+      border: 1px solid white;
+      background: $color-danger;
+      color: white;
+
+      &:hover {
+      border: 1px solid $color-danger;
+      background: white;
+      color: $color-danger;
+      }
+    }
+  }
+}
+
+.react-notifiable__item-texts {
+  width: 70%;
+  padding-right: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.react-notifiable__item-title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.react-notifiable__item-message {
+  font-size: 14px;
+}
+
+.react-notifiable__item-actions {
+  width: 30%;
+  border-left: 1px solid rgba(0, 0, 0, .1);
+  padding-left: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+
+  button {
+    outline: none;
+    cursor: pointer;
+    transition: .3s;
+    margin-bottom: 10px;
+    width: 100%;
+    border: none;
+    padding: 5px;
+    font-size: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.react-notifiable__items-enter {
+  opacity: 0;
+  left: 100%;
+}
+
+.react-notifiable__items-enter.react-notifiable__items-enter-active {
+  opacity: 1;
+  left: 0;
+}
+
+.react-notifiable__items-leave {
+  opacity: 1;
+  left: 0;
+}
+
+.react-notifiable__items-leave.react-notifiable__items-leave-active {
+  opacity: 0;
+  left: 100%;
+}

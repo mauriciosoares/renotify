@@ -3,12 +3,16 @@ import {createStore} from 'redux';
 import Notification from './notification';
 import reducer, {updateNotificationTemplate} from './reducerAndActions';
 import themeable from 'react-themeable';
-import './style.css';
+import './style.scss';
 
 const DEFAULT_THEME = {
   container: 'react-notifiable__container',
   items: 'react-notifiable__items',
-  item: 'react-notifiable__item'
+  item: 'react-notifiable__item',
+  itemTexts: 'react-notifiable__item-texts',
+  itemTitle: 'react-notifiable__item-title',
+  itemMessage: 'react-notifiable__item-message',
+  itemActions: 'react-notifiable__item-actions'
 };
 
 class Container extends React.Component {

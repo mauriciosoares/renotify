@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider, connect} from 'react-redux';
 import {NotificationContainer, notifiable, reducer, createMiddleware} from '../src/';
+import './index.scss';
 
 function reducer1() {
   return {};
@@ -14,7 +15,7 @@ const reducers = combineReducers({
 });
 
 const notifiableMiddleware = createMiddleware({
-  TEST: {title: 'HUE MIDDLWARE BRBR', message: 'custom message yay!'}
+  TEST: {title: 'HUE MIDDLWARE BRBRHUE MIDDLWARE BRBRHUE MIDDLWARE BRBRHUE MIDDLWARE BRBRHUE MIDDLWARE BRBR', message: 'custom message yay!'}
 });
 
 const store = createStore(reducers, applyMiddleware(notifiableMiddleware));
@@ -51,7 +52,8 @@ class InnerComponent extends React.Component {
   _handleClick = () => {
     const id = this.props.notify({
       // title: +new Date(),
-      message: 'handle message2 :D',
+      message: 'handle message2 :Dhandle message2 :Dhandle message2 :Dhandle message2 :D',
+      type: 'warning',
       actions: [{
         label: 1,
         callback(closeNotification) {

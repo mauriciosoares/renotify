@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
+import classNames from 'classnames';
 import notifiable from '../notifiable';
 
 class Item extends React.Component {
@@ -15,6 +16,7 @@ class Item extends React.Component {
     onAdd: PropTypes.func,
     onRemove: PropTypes.func,
     actions: PropTypes.array,
+    type: PropTypes.string,
     theme: PropTypes.func.isRequired
   };
 
@@ -49,14 +51,23 @@ class Item extends React.Component {
   }
 
   render() {
-    const {title, message, theme, id} = this.props;
+    const {title, message, theme, id, type} = this.props;
     const actions = this._getActions();
+    const itemTheme = theme(id, 'item');
 
     return (
-      <div {...theme(id, 'item')}>
-        {title}<br />
-        {message}<br />
-        {actions}
+      <div key={itemTheme.key} className={classNames(itemTheme.className, type)}>
+        <div {...theme(`${id}-texts`, 'itemTexts')}>
+          <div {...theme(`${id}-title`, 'itemTitle')}>
+            {title}
+          </div>
+          <div {...theme(`${id}-message`, 'itemMessage')}>
+            {message}
+          </div>
+        </div>
+        <div {...theme(`${id}-actions`, 'itemActions')}>
+          {actions}
+        </div>
       </div>
     );
   }
