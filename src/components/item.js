@@ -61,8 +61,9 @@ class Item extends React.Component {
           <div {...theme(`${id}-title`, 'itemTitle')}>
             {title}
           </div>
-          <div {...theme(`${id}-message`, 'itemMessage')}>
-            {message}
+          <div
+            {...theme(`${id}-message`, 'itemMessage')}
+            dangerouslySetInnerHTML={{__html: message}}>
           </div>
         </div>
         <div {...theme(`${id}-actions`, 'itemActions')}>

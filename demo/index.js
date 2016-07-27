@@ -15,7 +15,7 @@ const reducers = combineReducers({
 });
 
 const notifiableMiddleware = createMiddleware({
-  TEST: {title: 'HUE MIDDLWARE BRBRHUE MIDDLWARE BRBRHUE MIDDLWARE BRBRHUE MIDDLWARE BRBRHUE MIDDLWARE BRBR', message: 'custom message yay!'}
+  TEST: {title: 'Middlware rocks!', message: 'this is a <i>custom message</i> comming automagically from the middleware, and it rocks!'}
 });
 
 const store = createStore(reducers, applyMiddleware(notifiableMiddleware));
@@ -52,7 +52,7 @@ class InnerComponent extends React.Component {
   _handleClick = () => {
     const id = this.props.notify({
       // title: +new Date(),
-      message: 'handle message2 :Dhandle message2 :Dhandle message2 :Dhandle message2 :D',
+      message: 'This is a custom message, and its a pretty nice message',
       type: 'warning',
       actions: [{
         label: 1,
