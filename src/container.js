@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {createStore} from 'redux';
 import Notification from './notification';
-import reducer, {updateNotificationTemplate} from './reducerAndActions';
+import reducer, {updateNotificationShape} from './reducerAndActions';
 import themeable from 'react-themeable';
 import './style.scss';
 
@@ -20,7 +20,7 @@ class Container extends React.Component {
 
   static propTypes = {
     children: PropTypes.element,
-    notificationTemplate: PropTypes.object,
+    notificationShape: PropTypes.object,
     theme: PropTypes.object
   };
 
@@ -44,8 +44,8 @@ class Container extends React.Component {
       ...props.theme
     });
 
-    if(props.notificationTemplate) {
-      updateNotificationTemplate(props.notificationTemplate);
+    if(props.notificationShape) {
+      updateNotificationShape(props.notificationShape);
     }
 
     if(context.store && context.store.getState().$$notifiable) {
