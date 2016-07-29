@@ -72,5 +72,29 @@ describe('Actions', () => {
         }
       });
     });
+
+    it('should merge the structure of the notification with the default', () => {
+      const notification = {
+        title: 'custom title',
+        message: 'custom message'
+      };
+      const output = notify(notification);
+
+      expect(output).toEqual({
+        type: NOTIFY,
+        notification: {
+          id: output.notification.id,
+          ...NOTIFICATION_SHAPE,
+          ...notification
+        }
+      });
+    });
+
+    it('should set a custom ID for the notification, in case its set', () => {
+      const customId = 'custom-id';
+      const output = notify({id: customId});
+
+      expect(output.notification.id).toEqual(customId);
+    });
   });
 });
