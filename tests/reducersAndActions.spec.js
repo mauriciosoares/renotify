@@ -62,7 +62,9 @@ describe('Util', () => {
 describe('Actions', () => {
   describe('notify', () => {
     it('should return a new notification with default shape', () => {
-      expect(notify({})).toEqual({
+      const output = notify({});
+
+      expect(output).toEqual({
         type: NOTIFY,
         notification: {
           id: output.notification.id,
