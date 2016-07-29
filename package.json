@@ -4,7 +4,7 @@
   "description": "Notifications made easy",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest",
+    "test": "karma start karma.config.js",
     "start": "webpack-dev-server --config webpack.dev.config.js --progress --colors",
     "lint": "eslint src",
     "dist": "rm -rf dist && mkdir dist && babel src -d dist"
@@ -37,7 +37,14 @@
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-react": "^5.2.2",
     "html-webpack-plugin": "2.17.0",
+    "jasmine-core": "^2.4.1",
     "jest-cli": "12.1.1",
+    "karma": "^1.1.2",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-webpack": "^1.7.0",
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
     "react-addons-test-utils": "15.1.0",
