@@ -2,7 +2,7 @@ import uuid from 'uuid';
 
 export const NOTIFY = '@@react-yell/NOTIFY';
 export const CLOSE_NOTIFICATION = '@@react-yell/CLOSE_NOTIFICATION';
-let NOTIFICATION_TEMPLATE = {
+let NOTIFICATION_SHAPE = {
   dismiss: true,
   dismissTimeout: 5000,
   actions: [{
@@ -14,9 +14,9 @@ const initialState = {
   notifications: []
 };
 
-export function updateNotificationTemplate(template) {
-  NOTIFICATION_TEMPLATE = {
-    ...NOTIFICATION_TEMPLATE,
+export function updateNotificationShape(template) {
+  NOTIFICATION_SHAPE = {
+    ...NOTIFICATION_SHAPE,
     ...template
   };
 }
@@ -27,7 +27,7 @@ function notify(n) {
   return {
     type: NOTIFY,
     notification: {
-      ...NOTIFICATION_TEMPLATE,
+      ...NOTIFICATION_SHAPE,
       ...n,
       id
     }

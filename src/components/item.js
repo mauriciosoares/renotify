@@ -37,7 +37,7 @@ class Item extends React.Component {
 
     if(dismiss) {
       this.timeout = setTimeout(() => {
-        closeNotification(id);
+        this.closeNotification();
       }, dismissTimeout);
     }
   }
