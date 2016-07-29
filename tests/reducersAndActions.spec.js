@@ -1,4 +1,10 @@
-import reducer, {NOTIFY, CLOSE_NOTIFICATION} from '../src/reducerAndActions.js';
+import reducer, {
+  NOTIFY,
+  CLOSE_NOTIFICATION,
+  NOTIFICATION_SHAPE,
+  updateNotificationShape,
+  notify
+} from '../src/reducerAndActions.js';
 
 describe('Reducer', () => {
   it('should return the initial state', () => {
@@ -32,6 +38,37 @@ describe('Reducer', () => {
 
     expect(reducer(state, {type: CLOSE_NOTIFICATION, id})).toEqual({ // eslint-disable-line no-undefined
       notifications: []
+    });
+  });
+});
+
+describe('Util', () => {
+  it('should update the notifications default shape', () => {
+    const newNotificationShape = {
+      dismiss: false,
+      dismissTimeout: 1000,
+      actions: [{
+        label: 'Test'
+      }],
+      type: 'danger'
+    };
+
+    updateNotificationShape(newNotificationShape);
+
+    expect(NOTIFICATION_SHAPE).toEqual(newNotificationShape);
+  });
+});
+
+describe('Actions', () => {
+  describe('notify', () => {
+    it('should return a new notification with default shape', () => {
+      expect(notify({})).toEqual({
+        type: NOTIFY,
+        notification: {
+          id: output.notification.id,
+          ...NOTIFICATION_SHAPE
+        }
+      });
     });
   });
 });
