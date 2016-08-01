@@ -61,7 +61,14 @@ class InnerComponent extends React.Component {
         callback(closeNotification) {
           closeNotification();
           // console.log('callback1');
-        }
+        },
+        template: ({title, message, actions}) => (
+          <div>
+            {title}
+            {message}
+            {actions}
+          </div>
+        )
       }, {
         label: 'close here!'
       }],
