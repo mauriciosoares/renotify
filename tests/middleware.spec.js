@@ -1,5 +1,5 @@
-import {NOTIFICATION_SHAPE, NOTIFY} from '../src/reducerAndActions.js';
-import createMiddleware from '../src/middleware.js';
+import {NOTIFICATION_SHAPE, NOTIFY} from '../src/reducerAndActions';
+import createMiddleware from '../src/middleware';
 
 const MAPPED_ACTION = 'MAPPED_ACTION';
 const NOT_MAPPED_ACTION = 'NOT_MAPPED_ACTION';

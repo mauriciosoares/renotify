@@ -39,7 +39,9 @@ class Container extends React.Component {
 
 class InnerComponent extends React.Component {
   render() {
-    const {dispatch} = this.props;
+    const {dispatch, closeNotification} = this.props;
+
+    console.log(closeNotification);
 
     return (
       <div>

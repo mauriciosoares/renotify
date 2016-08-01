@@ -22,11 +22,7 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['react-hot', 'babel'],
-        include: [
-          path.join(__dirname, 'src'),
-          path.join(__dirname, 'demo'),
-          path.join(__dirname, 'tests')
-        ]
+        exclude: /\/node_modules\//
       },
       {
         test: /\.scss$/,
@@ -57,5 +53,12 @@ module.exports = {
     inline: true,
     progress: true,
     port: 3000
+  },
+
+  externals: {
+    cheerio: 'window',
+    'react/addons': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true
   }
 };

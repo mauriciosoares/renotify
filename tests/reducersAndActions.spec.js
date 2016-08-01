@@ -5,7 +5,7 @@ import reducer, {
   updateNotificationShape,
   notify,
   closeNotification
-} from '../src/reducerAndActions.js';
+} from '../src/reducerAndActions';
 
 describe('Reducer', () => {
   it('should return the initial state', () => {

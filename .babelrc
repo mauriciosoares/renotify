@@ -2,6 +2,7 @@
   "presets": ["es2015", "stage-0", "react"],
   "env": {
     "test": {
+      "presets": ["airbnb", "es2015", "stage-0", "react"],
       "plugins": [
         ["__coverage__", {
           "ignore": "*.spec.*"
