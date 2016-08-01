@@ -26,7 +26,7 @@ class Container extends React.Component {
 
   static defaultProps = {
     theme: {}
-  }
+  };
 
   static contextTypes = {
     store: PropTypes.shape({

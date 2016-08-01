@@ -13,7 +13,7 @@ class Notification extends React.Component {
     notify: PropTypes.func,
     closeNotification: PropTypes.func,
     theme: PropTypes.func.isRequired
-  }
+  };
 
   static childContextTypes = {
     __notify: React.PropTypes.func,
