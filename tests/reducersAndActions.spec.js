@@ -3,7 +3,8 @@ import reducer, {
   CLOSE_NOTIFICATION,
   NOTIFICATION_SHAPE,
   updateNotificationShape,
-  notify
+  notify,
+  closeNotification
 } from '../src/reducerAndActions.js';
 
 describe('Reducer', () => {
@@ -95,6 +96,18 @@ describe('Actions', () => {
       const output = notify({id: customId});
 
       expect(output.notification.id).toEqual(customId);
+    });
+  });
+
+  describe('closeNotification', () => {
+    it('should return the action with the sent ID', () => {
+      const id = 'custom-id';
+      const output = closeNotification(id);
+
+      expect(output).toEqual({
+        type: CLOSE_NOTIFICATION,
+        id
+      });
     });
   });
 });
