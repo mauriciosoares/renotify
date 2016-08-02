@@ -45,9 +45,7 @@ describe('Items', () => {
 
   it('should call the onAdd callback once the component is mounted', () => {
     const toSpy = {
-      onAdd: () => {
-        console.log('onadd!');
-      }
+      onAdd: () => {}
     };
 
     spyOn(toSpy, 'onAdd'); // eslint-disable-line no-undef
@@ -124,20 +122,21 @@ describe('Items', () => {
   });
 
   it('should automatically close the notification if dismiss is true', () => {
-    jasmine.clock().install();
+    jasmine.clock().install();  // eslint-disable-line no-undef
     const toSpy = {
       closeNotification: () => {}
     };
 
     spyOn(toSpy, 'closeNotification'); // eslint-disable-line no-undef
 
-    const wrapper = mount(<Item
+    mount(<Item
       {...fakeNotification}
       theme={fakeTheme}
       closeNotification={toSpy.closeNotification}
+      dismissTimeout={5000}
       dismiss />);
 
-    jasmine.clock().tick(5001);
+    jasmine.clock().tick(5001); // eslint-disable-line no-undef
 
     expect(toSpy.closeNotification).toHaveBeenCalled();
   });
