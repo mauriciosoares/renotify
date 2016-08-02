@@ -51,7 +51,8 @@ describe('Util', () => {
       actions: [{
         label: 'Test'
       }],
-      type: 'danger'
+      type: 'danger',
+      Template: null
     };
 
     updateNotificationShape(newNotificationShape);

@@ -8,7 +8,8 @@ export let NOTIFICATION_SHAPE = {
   actions: [{
     label: 'Dismiss'
   }],
-  type: 'success'
+  type: 'success',
+  Template: null
 };
 const initialState = {
   notifications: []

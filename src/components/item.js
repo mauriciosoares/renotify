@@ -3,7 +3,7 @@ import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
 import notifiable from '../notifiable';
 
-class Item extends React.Component {
+export class Item extends React.Component {
   static displayName = 'Item';
 
   static propTypes = {
@@ -17,7 +17,11 @@ class Item extends React.Component {
     onRemove: PropTypes.func,
     actions: PropTypes.array,
     type: PropTypes.string,
-    theme: PropTypes.func.isRequired
+    theme: PropTypes.func.isRequired,
+    Template: React.PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func
+    ])
   };
 
   constructor(props) {
@@ -31,7 +35,7 @@ class Item extends React.Component {
   }
 
   componentDidMount() {
-    const {dismiss, dismissTimeout, closeNotification, id, onAdd} = this.props;
+    const {dismiss, dismissTimeout, onAdd} = this.props;
 
     onAdd && onAdd();
 
@@ -51,24 +55,29 @@ class Item extends React.Component {
   }
 
   render() {
-    const {title, message, theme, id, type} = this.props;
+    const {title, message, theme, id, type, Template} = this.props;
     const actions = this._getActions();
     const itemTheme = theme(id, 'item');
+    const hasTemplate = (Template !== null);
 
     return (
       <div key={itemTheme.key} className={classNames(itemTheme.className, type)}>
-        <div {...theme(`${id}-texts`, 'itemTexts')}>
-          <div {...theme(`${id}-title`, 'itemTitle')}>
-            {title}
+        {hasTemplate && <Template title={title} message={message} actions={actions} />}
+
+        {!hasTemplate && [
+          <div {...theme(`${id}-texts`, 'itemTexts')}>
+            <div {...theme(`${id}-title`, 'itemTitle')}>
+              {title}
+            </div>
+            <div
+              {...theme(`${id}-message`, 'itemMessage')}
+              dangerouslySetInnerHTML={{__html: message}}>
+            </div>
+          </div>,
+          <div {...theme(`${id}-actions`, 'itemActions')}>
+            {actions}
           </div>
-          <div
-            {...theme(`${id}-message`, 'itemMessage')}
-            dangerouslySetInnerHTML={{__html: message}}>
-          </div>
-        </div>
-        <div {...theme(`${id}-actions`, 'itemActions')}>
-          {actions}
-        </div>
+        ]}
       </div>
     );
   }

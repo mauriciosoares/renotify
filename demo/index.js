@@ -41,8 +41,6 @@ class InnerComponent extends React.Component {
   render() {
     const {dispatch, closeNotification} = this.props;
 
-    console.log(closeNotification);
-
     return (
       <div>
         <button onClick={this._handleClick}>test</button>
@@ -61,14 +59,7 @@ class InnerComponent extends React.Component {
         callback(closeNotification) {
           closeNotification();
           // console.log('callback1');
-        },
-        template: ({title, message, actions}) => (
-          <div>
-            {title}
-            {message}
-            {actions}
-          </div>
-        )
+        }
       }, {
         label: 'close here!'
       }],
@@ -79,7 +70,6 @@ class InnerComponent extends React.Component {
         // console.log('removing');
       }
     });
-
   };
 
   _handleMiddleware = () => {

@@ -11,6 +11,7 @@ $color-danger: #D40D12;
   top: 10px;
   right: 0;
   overflow: hidden;
+  z-index: 50;
 }
 
 .react-notifiable__item {
@@ -23,6 +24,7 @@ $color-danger: #D40D12;
   transition: .3s;
   font-family: sans-serif;
   line-height: 1.4;
+  z-index: 1;
 
   &.success {
     background: $color-success;
