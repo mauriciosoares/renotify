@@ -88,10 +88,12 @@ $color-danger: #D40D12;
 .react-notifiable__item-title {
   font-weight: bold;
   font-size: 14px;
+  width: 100%;
 }
 
 .react-notifiable__item-message {
   font-size: 12px;
+  width: 100%;
 }
 
 .react-notifiable__item-actions {
