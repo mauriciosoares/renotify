@@ -17,7 +17,7 @@ class Types extends React.Component {
           notify({title: 'danger', type: 'danger'});
         }}>Danger</button>
         <p>
-          React Notifiable comes with 3 default types, <b>success</b>, <b>warning</b> and <b>danger</b>, but it's pretty easy to create no types.
+          React Notifiable comes with 3 default types, <b>success</b>, <b>warning</b> and <b>danger</b>, but you can create your custom type in no time!
         </p>
         <hr/>
       </div>

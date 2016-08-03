@@ -2,12 +2,8 @@ $color-success: #369c43;
 $color-warning: #e6c909;
 $color-danger: #D40D12;
 
-.react-notifiable__container {
-  position: relative;
-}
-
 .react-notifiable__items {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 0;
   overflow: hidden;
