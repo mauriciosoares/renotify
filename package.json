@@ -25,7 +25,6 @@
     "autoprefixer": "^6.3.7",
     "babel-core": "6.8.0",
     "babel-eslint": "^6.1.2",
-    "babel-jest": "12.1.0",
     "babel-loader": "6.2.4",
     "babel-plugin-__coverage__": "^11.0.0",
     "babel-polyfill": "6.9.0",
@@ -40,7 +39,6 @@
     "eslint-plugin-react": "^5.2.2",
     "html-webpack-plugin": "2.17.0",
     "jasmine-core": "^2.4.1",
-    "jest-cli": "12.1.1",
     "karma": "^1.1.2",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^1.0.1",
@@ -70,11 +68,5 @@
     "react-redux": "4.4.5",
     "react-themeable": "^1.1.0",
     "redux": "3.5.2"
-  },
-  "jest": {
-    "unmockedModulePathPatterns": [
-      "node_modules/react/",
-      "node_modules/enzyme/"
-    ]
   }
 }
