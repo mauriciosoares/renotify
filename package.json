@@ -21,7 +21,7 @@
   ],
   "files": [
     "dist",
-    "styles.css"
+    "./styles.css"
   ],
   "author": "Mauricio Soares <m.soares2603@gmail.com>",
   "license": "MIT",
