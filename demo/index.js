@@ -9,6 +9,7 @@ import Hooks from './components/hooks';
 import MultipleActions from './components/multiple-actions';
 import Types from './components/types';
 import Template from './components/template';
+import '../style.css';
 import './index.scss';
 
 function someCustomReducer() {

@@ -3,7 +3,6 @@ import {createStore} from 'redux';
 import Notification from './notification';
 import reducer, {updateNotificationShape} from './reducerAndActions';
 import themeable from 'react-themeable';
-import './style.scss';
 
 const DEFAULT_THEME = {
   container: 'react-notifiable__container',
