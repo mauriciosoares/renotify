@@ -1,6 +1,6 @@
 {
   "name": "react-notifiable",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "Notifications a la Redux",
   "main": "dist/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   ],
   "files": [
     "dist",
-    "./styles.css"
+    "style.css"
   ],
   "author": "Mauricio Soares <m.soares2603@gmail.com>",
   "license": "MIT",
