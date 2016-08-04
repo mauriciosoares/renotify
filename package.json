@@ -7,7 +7,7 @@
     "test": "karma start karma.config.js",
     "start": "webpack-dev-server --config webpack.dev.config.js --progress --colors",
     "lint": "eslint src",
-    "dist": "rm -rf dist && mkdir dist && babel src -d dist"
+    "dist": "rm -rf dist styles.css && mkdir dist && babel src -d dist && node-sass src/style.scss -o ./"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,10 @@
     "react",
     "notification",
     "notifiable"
+  ],
+  "files": [
+    "dist",
+    "styles.css"
   ],
   "author": "Mauricio Soares <m.soares2603@gmail.com>",
   "license": "MIT",

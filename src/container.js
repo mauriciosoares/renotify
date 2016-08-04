@@ -24,10 +24,6 @@ class Container extends React.Component {
     theme: PropTypes.object
   };
 
-  static defaultProps = {
-    theme: {}
-  };
-
   static contextTypes = {
     store: PropTypes.shape({
       subscribe: PropTypes.func.isRequired,
@@ -39,10 +35,7 @@ class Container extends React.Component {
   constructor(props, context) {
     super(props);
 
-    this.theme = themeable({
-      ...DEFAULT_THEME,
-      ...props.theme
-    });
+    this.theme = themeable(props.theme || DEFAULT_THEME);
 
     if(props.notificationShape) {
       updateNotificationShape(props.notificationShape);
