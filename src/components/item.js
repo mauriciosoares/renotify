@@ -62,22 +62,22 @@ export class Item extends React.Component {
 
     return (
       <div key={itemTheme.key} className={classNames(itemTheme.className, type)}>
-        {hasTemplate && <Template title={title} message={message} actions={actions} />}
-
-        {!hasTemplate && [
-          <div {...theme(`${id}-texts`, 'itemTexts')}>
-            <div {...theme(`${id}-title`, 'itemTitle')}>
-              {title}
+        {hasTemplate ?
+          <Template title={title} message={message} actions={actions} /> :
+          [
+            <div {...theme(`${id}-texts`, 'itemTexts')}>
+              <div {...theme(`${id}-title`, 'itemTitle')}>
+                {title}
+              </div>
+              <div
+                {...theme(`${id}-message`, 'itemMessage')}
+                dangerouslySetInnerHTML={{__html: message}} />
+            </div>,
+            <div {...theme(`${id}-actions`, 'itemActions')}>
+              {actions}
             </div>
-            <div
-              {...theme(`${id}-message`, 'itemMessage')}
-              dangerouslySetInnerHTML={{__html: message}}>
-            </div>
-          </div>,
-          <div {...theme(`${id}-actions`, 'itemActions')}>
-            {actions}
-          </div>
-        ]}
+          ]
+        }
       </div>
     );
   }
