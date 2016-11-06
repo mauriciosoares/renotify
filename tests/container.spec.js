@@ -13,7 +13,7 @@ describe('Container', () => {
     });
   });
 
-  it('should configure the redux store if its passed but does not have the $$notifiable reducer', () => {
+  it('should configure the redux store if its passed but does not have the $$renotify reducer', () => {
     const wrapper = shallow(<Container />, {
       context: {
         store: {
@@ -42,7 +42,7 @@ describe('Container', () => {
           dispatch: () => {},
           getState: () => {
             return {
-              $$notifiable: {notifications: []},
+              $$renotify: {notifications: []},
               someReducer: {}
             };
           }
@@ -53,7 +53,7 @@ describe('Container', () => {
     expect(wrapper.instance().store).toBeDefined();
     expect(wrapper.instance().store.getState()).toEqual({
       someReducer: {},
-      $$notifiable: {
+      $$renotify: {
         notifications: []
       }
     });

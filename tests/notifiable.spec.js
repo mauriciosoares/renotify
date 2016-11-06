@@ -1,5 +1,5 @@
 import React from 'react';
-import notifiable from '../src/notifiable';
+import renotify from '../src/renotify';
 import {shallow, mount} from 'enzyme';
 
 const componentNotification = {
@@ -16,11 +16,11 @@ class FakeComponent extends React.Component {
   }
 }
 
-describe('Notifiable', () => {
+describe('Renotify', () => {
   it('should return a component with the notify and closeNotification props', () => {
-    const NotifiableComponent = notifiable()(FakeComponent);
+    const RenotifyComponent = renotify()(FakeComponent);
 
-    const wrapper = shallow(<NotifiableComponent />)
+    const wrapper = shallow(<RenotifyComponent />)
     const props = wrapper.props();
 
     expect(props.hasOwnProperty('notify')).toBe(true);
@@ -34,9 +34,9 @@ describe('Notifiable', () => {
       title: 'custom title'
     };
 
-    const NotifiableComponent = notifiable(shape)(FakeComponent);
+    const RenotifyComponent = renotify(shape)(FakeComponent);
 
-    const wrapper = mount(<NotifiableComponent />, {
+    const wrapper = mount(<RenotifyComponent />, {
       context: {
         __notify: n => notification = n
       }
