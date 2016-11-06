@@ -8,7 +8,7 @@ class Notification extends React.Component {
   static displayName = 'Notification';
 
   static propTypes = {
-    $$notifiable: PropTypes.object,
+    $$renotify: PropTypes.object,
     children: PropTypes.element,
     notify: PropTypes.func,
     closeNotification: PropTypes.func,
@@ -23,7 +23,7 @@ class Notification extends React.Component {
   }
 
   render() {
-    const {theme, $$notifiable: {notifications}} = this.props;
+    const {theme, $$renotify: {notifications}} = this.props;
 
     return (
       <div {...theme(1, 'container')}>
@@ -50,7 +50,7 @@ class Notification extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  $$notifiable: state.$$notifiable || state
+  $$renotify: state.$$renotify || state
 });
 
 export default connect(mapStateToProps, actionCreators)(Notification);

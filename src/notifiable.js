@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function notifiable(shape = {}) {
-  return (Component) => class Notifiable extends React.Component {
-    static displayName = 'Notifiable';
+export default function renotify(shape = {}) {
+  return (Component) => class Renotify extends React.Component {
+    static displayName = 'Renotify';
 
     static contextTypes = {
       __notify: React.PropTypes.func,

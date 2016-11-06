@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
-import notifiable from '../notifiable';
+import renotify from '../renotify';
 
 export class Item extends React.Component {
   static displayName = 'Item';
@@ -95,4 +95,4 @@ export class Item extends React.Component {
   }
 }
 
-export default notifiable()(Item);
+export default renotify()(Item);

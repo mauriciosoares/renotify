@@ -18,17 +18,17 @@ function someCustomReducer() {
 
 const reducers = combineReducers({
   someCustomReducer,
-  $$notifiable: reducer
+  $$renotify: reducer
 });
 
-const notifiableMiddleware = createMiddleware({
+const renotifyMiddleware = createMiddleware({
   MIDDLEWARE: {
     title: 'Middleware Notification',
     message: 'This notification is automagically comming from a middleware'
   }
 });
 
-const store = createStore(reducers, applyMiddleware(notifiableMiddleware));
+const store = createStore(reducers, applyMiddleware(renotifyMiddleware));
 
 class Container extends React.Component {
   render() {

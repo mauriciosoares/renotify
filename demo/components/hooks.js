@@ -1,5 +1,5 @@
 import React from 'react';
-import {notifiable} from '../../src/';
+import {renotify} from '../../src/';
 
 class Hooks extends React.Component {
   render() {
@@ -24,4 +24,4 @@ class Hooks extends React.Component {
   }
 }
 
-export default notifiable()(Hooks);
+export default renotify()(Hooks);

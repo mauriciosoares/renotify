@@ -1,5 +1,5 @@
 import React from 'react';
-import {notifiable} from '../../src/';
+import {renotify} from '../../src/';
 
 const NotificationTemplate = ({title, message, actions}) => (
   <div>
@@ -19,7 +19,7 @@ class Template extends React.Component {
           notify({title: 'Template Title', message: 'Template Message', Template: NotificationTemplate});
         }}>Template</button>
         <p>
-          It's pretty easy to override React Notifiable's default template, simply add a component to the Template property, it'll receive <b>title</b>, <b>message</b> and <b>actions</b> as props.<br />
+          It's pretty easy to override React Renotify's default template, simply add a component to the Template property, it'll receive <b>title</b>, <b>message</b> and <b>actions</b> as props.<br />
           You'll have to handle the css on your own though...
         </p>
         <hr/>
@@ -28,4 +28,4 @@ class Template extends React.Component {
   }
 }
 
-export default notifiable()(Template);
+export default renotify()(Template);

@@ -5,13 +5,13 @@ import reducer, {updateNotificationShape} from './reducerAndActions';
 import themeable from 'react-themeable';
 
 const DEFAULT_THEME = {
-  container: 'react-notifiable__container',
-  items: 'react-notifiable__items',
-  item: 'react-notifiable__item',
-  itemTexts: 'react-notifiable__item-texts',
-  itemTitle: 'react-notifiable__item-title',
-  itemMessage: 'react-notifiable__item-message',
-  itemActions: 'react-notifiable__item-actions'
+  container: 'renotify__container',
+  items: 'renotify__items',
+  item: 'renotify__item',
+  itemTexts: 'renotify__item-texts',
+  itemTitle: 'renotify__item-title',
+  itemMessage: 'renotify__item-message',
+  itemActions: 'renotify__item-actions'
 };
 
 class Container extends React.Component {
@@ -40,7 +40,7 @@ class Container extends React.Component {
       updateNotificationShape(props.notificationShape);
     }
 
-    if(context.store && context.store.getState().$$notifiable) {
+    if(context.store && context.store.getState().$$renotify) {
       this.store = context.store;
     } else {
       this.store = createStore(reducer);

@@ -1,7 +1,7 @@
 {
-  "name": "react-notifiable",
+  "name": "renotify",
   "version": "0.0.6",
-  "description": "Notifications a la Redux",
+  "description": "A Redux friendly notification system for React",
   "main": "dist/index.js",
   "scripts": {
     "test": "karma start karma.config.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mauriciosoares/react-notifiable.git"
+    "url": "https://github.com/mauriciosoares/renotify.git"
   },
   "keywords": [
     "react",
@@ -25,7 +25,7 @@
   ],
   "author": "Mauricio Soares <m.soares2603@gmail.com>",
   "license": "MIT",
-  "homepage": "https://mauriciosoares.github.io/react-notifiable/",
+  "homepage": "https://mauriciosoares.github.io/renotify/",
   "devDependencies": {
     "autoprefixer": "^6.5.1",
     "babel-core": "6.17.0",

@@ -1,5 +1,5 @@
 import React from 'react';
-import {notifiable} from '../../src/';
+import {renotify} from '../../src/';
 
 class Types extends React.Component {
   render() {
@@ -17,7 +17,7 @@ class Types extends React.Component {
           notify({title: 'danger', type: 'danger'});
         }}>Danger</button>
         <p>
-          React Notifiable comes with 3 default types, <b>success</b>, <b>warning</b> and <b>danger</b>, but you can create your custom type in no time!
+          React Renotify comes with 3 default types, <b>success</b>, <b>warning</b> and <b>danger</b>, but you can create your custom type in no time!
         </p>
         <hr/>
       </div>
@@ -25,4 +25,4 @@ class Types extends React.Component {
   }
 }
 
-export default notifiable()(Types);
+export default renotify()(Types);

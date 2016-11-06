@@ -1,5 +1,5 @@
 import React from 'react';
-import {notifiable} from '../../src/';
+import {renotify} from '../../src/';
 
 class Dismiss extends React.Component {
   render() {
@@ -27,4 +27,4 @@ class Dismiss extends React.Component {
   }
 }
 
-export default notifiable()(Dismiss);
+export default renotify()(Dismiss);

@@ -1,5 +1,5 @@
 import React from 'react';
-import {notifiable} from '../../src/';
+import {renotify} from '../../src/';
 
 class Simple extends React.Component {
   render() {
@@ -19,4 +19,4 @@ class Simple extends React.Component {
   }
 }
 
-export default notifiable()(Simple);
+export default renotify()(Simple);
