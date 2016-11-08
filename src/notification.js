@@ -15,6 +15,18 @@ class Notification extends React.Component {
     theme: PropTypes.func.isRequired
   };
 
+  static childContextTypes = {
+    __notify: React.PropTypes.func,
+    __closeNotification: React.PropTypes.func
+  };
+
+  getChildContext() {
+    return {
+      __notify: this.notify,
+      __closeNotification: this.closeNotification
+    };
+  }
+
   constructor() {
     super();
 
