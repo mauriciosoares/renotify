@@ -54,24 +54,23 @@
     "postcss-loader": "^1.0.0",
     "precss": "^1.4.0",
     "react-addons-test-utils": "15.3.2",
-    "react-dom": "15.1.0",
+    "react-dom": "15.3.2",
     "react-hot-loader": "3.0.0-beta.6",
     "style-loader": "0.13.1",
     "webpack": "1.13.2",
     "webpack-dev-server": "1.16.2",
-    "react-dom": "15.3.2",
     "node-sass": "^3.10.1",
     "sass-loader": "^4.0.2"
   },
   "dependencies": {
     "babel-cli": "6.16.0",
     "classnames": "^2.2.5",
-    "node-uuid": "1.4.7",
     "react": "15.3.2",
     "react-addons-css-transition-group": "15.3.2",
     "react-addons-shallow-compare": "15.3.2",
     "react-redux": "4.4.5",
     "react-themeable": "^1.1.0",
-    "redux": "3.6.0"
+    "redux": "3.6.0",
+    "uuid": "^3.0.0"
   }
 }
