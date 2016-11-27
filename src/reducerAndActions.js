@@ -1,4 +1,4 @@
-import uuid from 'node-uuid';
+import uuid from 'uuid';
 
 export const NOTIFY = '@@react-yell/NOTIFY';
 export const CLOSE_NOTIFICATION = '@@react-yell/CLOSE_NOTIFICATION';
