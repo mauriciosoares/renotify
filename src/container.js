@@ -4,6 +4,8 @@ import Notification from './notification';
 import reducer, {updateNotificationShape} from './reducerAndActions';
 import themeable from 'react-themeable';
 
+console.log('test');
+
 const DEFAULT_THEME = {
   container: 'renotify__container',
   items: 'renotify__items',
