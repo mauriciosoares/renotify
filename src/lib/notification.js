@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import uuid from 'uuid';
 import {connect} from 'react-redux';
 import Items from './components/items';
@@ -11,13 +12,12 @@ class Notification extends React.Component {
     $$renotify: PropTypes.object,
     children: PropTypes.element,
     notify: PropTypes.func,
-    closeNotification: PropTypes.func,
-    theme: PropTypes.func.isRequired
+    closeNotification: PropTypes.func
   };
 
   static childContextTypes = {
-    __notify: React.PropTypes.func,
-    __closeNotification: React.PropTypes.func
+    __notify: PropTypes.func,
+    __closeNotification: PropTypes.func
   };
 
   getChildContext() {
@@ -35,11 +35,11 @@ class Notification extends React.Component {
   }
 
   render() {
-    const {theme, $$renotify: {notifications}} = this.props;
+    const {$$renotify: {notifications}} = this.props;
 
     return (
-      <div {...theme(1, 'container')}>
-        <Items notifications={notifications} theme={theme} />
+      <div className="renotify__container">
+        <Items notifications={notifications} />
         {this.props.children}
       </div>
     );

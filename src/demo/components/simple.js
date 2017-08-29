@@ -1,5 +1,5 @@
 import React from 'react';
-import {renotify} from '../../src/';
+import {renotify} from '../../lib/';
 
 class Simple extends React.Component {
   render() {

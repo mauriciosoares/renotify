@@ -1,5 +1,5 @@
 import React from 'react';
-import {renotify} from '../../src/';
+import {renotify} from '../../lib/';
 
 class Types extends React.Component {
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {renotify} from '../../src/';
+import {renotify} from '../../lib/';
 
 const NotificationTemplate = ({title, message, actions}) => (
   <div>

@@ -1,7 +1,7 @@
 import uuid from 'uuid';
 
-export const NOTIFY = '@@react-yell/NOTIFY';
-export const CLOSE_NOTIFICATION = '@@react-yell/CLOSE_NOTIFICATION';
+export const NOTIFY = '@@renotify/NOTIFY';
+export const CLOSE_NOTIFICATION = '@@renotify/CLOSE_NOTIFICATION';
 export let NOTIFICATION_SHAPE = {
   dismiss: true,
   dismissTimeout: 5000,

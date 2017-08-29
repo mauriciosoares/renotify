@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function renotify(shape = {}) {
   return (Component) => class Renotify extends React.Component {
     static displayName = 'Renotify';
 
     static contextTypes = {
-      __notify: React.PropTypes.func,
-      __closeNotification: React.PropTypes.func
+      __notify: PropTypes.func,
+      __closeNotification: PropTypes.func
     };
 
     render() {

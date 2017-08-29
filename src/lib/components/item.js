@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import shallowCompare from 'react-addons-shallow-compare';
 import classNames from 'classnames';
 import renotify from '../renotify';
@@ -17,8 +18,7 @@ export class Item extends React.Component {
     onRemove: PropTypes.func,
     actions: PropTypes.array,
     type: PropTypes.string,
-    theme: PropTypes.func.isRequired,
-    Template: React.PropTypes.oneOfType([
+    Template: PropTypes.oneOfType([
       PropTypes.element,
       PropTypes.func
     ])
@@ -55,25 +55,24 @@ export class Item extends React.Component {
   }
 
   render() {
-    const {title, message, theme, id, type, Template} = this.props;
+    const {title, message, id, type, Template} = this.props;
     const actions = this._getActions();
-    const itemTheme = theme(id, 'item');
     const hasTemplate = (Template !== null);
 
     return (
-      <div key={itemTheme.key} className={classNames(itemTheme.className, type)}>
+      <div className={classNames('renotify__item', type)}>
         {hasTemplate ?
           <Template title={title} message={message} actions={actions} /> :
           [
-            <div {...theme(`${id}-texts`, 'itemTexts')}>
-              <div {...theme(`${id}-title`, 'itemTitle')}>
+            <div key="1" className={classNames(`${id}-texts`, 'renotify__item-texts')}>
+              <div className={classNames(`${id}-title`, 'renotify__item-title')}>
                 {title}
               </div>
               <div
-                {...theme(`${id}-message`, 'itemMessage')}
+                className={classNames(`${id}-message`, 'renotify__item-message')}
                 dangerouslySetInnerHTML={{__html: message}} />
             </div>,
-            <div {...theme(`${id}-actions`, 'itemActions')}>
+            <div key="2" className={classNames(`${id}-actions`, 'renotify__item-actions')}>
               {actions}
             </div>
           ]

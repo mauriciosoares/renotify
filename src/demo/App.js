@@ -1,15 +1,14 @@
 import React from 'react';
-import {render} from 'react-dom';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import {NotificationContainer, reducer, createMiddleware} from '../src/';
+import {NotificationProvider, reducer, createMiddleware} from '../lib/';
 import Simple from './components/simple';
 import Dismiss from './components/dismiss';
 import Hooks from './components/hooks';
 import MultipleActions from './components/multiple-actions';
 import Types from './components/types';
 import Template from './components/template';
-import '../style.css';
+import '../lib/style.scss';
 import './index.scss';
 
 function someCustomReducer() {
@@ -30,11 +29,11 @@ const renotifyMiddleware = createMiddleware({
 
 const store = createStore(reducers, applyMiddleware(renotifyMiddleware));
 
-class Container extends React.Component {
+export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <NotificationContainer>
+        <NotificationProvider>
           <div>
             <Simple />
             <Dismiss />
@@ -43,11 +42,8 @@ class Container extends React.Component {
             <Types />
             <Template />
           </div>
-        </NotificationContainer>
+        </NotificationProvider>
       </Provider>
     );
   }
 }
-
-document.body.appendChild(document.createElement('div'));
-render(<Container />, document.querySelector('div'));

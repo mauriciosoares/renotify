@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Item from './item';
 import Transition from 'react-addons-css-transition-group';
 
@@ -8,23 +9,21 @@ class Items extends React.Component {
   static displayName = 'Items';
 
   static propTypes = {
-    notifications: PropTypes.array.isRequired,
-    theme: PropTypes.func.isRequired
+    notifications: PropTypes.array.isRequired
   };
 
   render() {
-    const {notifications, theme} = this.props;
-    const itemsTheme = theme(1, 'items');
+    const {notifications} = this.props;
 
     return (
-      <div {...itemsTheme}>
+      <div className="renotify__items">
         <Transition
-          transitionName={itemsTheme.className}
+          transitionName="renotify__items"
           transitionEnterTimeout={TRANSITION_TIMEOUT}
           transitionLeaveTimeout={TRANSITION_TIMEOUT}>
           {notifications.map(notification => {
             return (
-              <Item theme={theme} key={notification.id} {...notification} />
+              <Item key={notification.id} {...notification} />
             );
           })}
         </Transition>
